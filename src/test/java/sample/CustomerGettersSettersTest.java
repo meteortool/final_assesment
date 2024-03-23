@@ -12,7 +12,7 @@ public class CustomerGettersSettersTest {
     @Test
     public void testGetName() {
         Customer customer = new Customer("John Doe", null);
-        assertEquals("John Doe", customer.getName());
+        assertEquals("John Doe", customer.getName(), "Validação da obtenção do nome do clietne");
     }
 
     @Test
