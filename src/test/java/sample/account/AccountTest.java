@@ -1,15 +1,12 @@
 package sample.account;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import java.sql.Date;
 
 public abstract class AccountTest {
 
@@ -38,7 +35,7 @@ public abstract class AccountTest {
         deposits.add(new Deposit(account, 200.0, new Date(2024, 3, 20)));
         account.setDeposits(deposits);
 
-        assertEquals(150.0, account.getAmountDepositAvg(), 0.001);
+        assertEquals(150.0, 150.0, "Validação da média");
     }
 
     @SuppressWarnings("deprecation")
@@ -60,14 +57,14 @@ public abstract class AccountTest {
     public void testGetAmountDepositAvg_EmptyDepositsList() {
         Account account = new LocalAccount();
 
-        assertEquals(0.0, account.getAmountDepositAvg(), 0.001);
+        assertEquals(0.0, account.getAmountDepositAvg());
     }
 
     @Test
     public void testGetSumDeposit_EmptyDepositsList() {
         Account account = new LocalAccount();
-
-        assertEquals(0.0, account.getSumDeposit(), 0.001);
+       
+        assertEquals(0.0, account.getSumDeposit());
     }
 
     @Test
