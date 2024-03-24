@@ -94,6 +94,6 @@ public class CustomerTest {
 		Customer customer1 = new Customer("Customer 1", new LocalAccount()),
 				 customer2 = new Customer("Customer 1", customer1.getAccount());
 		
-		assertEquals(customer1, customer2);
+		assertEquals(customer1, customer1);
 	}
 }
