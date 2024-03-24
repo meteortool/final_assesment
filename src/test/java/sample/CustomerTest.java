@@ -1,5 +1,6 @@
 package sample;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -86,5 +87,13 @@ public class CustomerTest {
 		
 		assertTrue(customer.getAccount().getSumDeposit() == 500+800+1200+300, "Deposits total");
 	}
-
+	
+	@Test
+	public void testEquality() {
+		
+		Customer customer1 = new Customer("Customer 1", new LocalAccount()),
+				 customer2 = new Customer("Customer 1", customer1.getAccount());
+		
+		assertEquals(customer1, customer2);
+	}
 }

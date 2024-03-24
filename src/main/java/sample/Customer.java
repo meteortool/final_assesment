@@ -1,9 +1,28 @@
 package sample;
 
+import java.util.Objects;
+
 import sample.account.Account;
 
 public class Customer {
 	
+	@Override
+	public int hashCode() {
+		return Objects.hash(account, name);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Customer other = (Customer) obj;
+		return account.equals(other.account) && name.equals(other.name);
+	}
+
 	private String name;
 	private Account account;
 	
@@ -29,5 +48,6 @@ public class Customer {
 	public boolean isVIP() {
 		return account.getAmountDepositAvg() >+ 1000;		
 	}
+	
 
 }
