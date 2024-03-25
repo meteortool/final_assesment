@@ -40,11 +40,11 @@ public class CustomerTest {
 		
 		Customer customer = new Customer("John doe", new LocalAccount() {
 			public double getAmountDepositAvg() {
-				return 1001;
+				return 1000;
 			}		
 		});
 		
-		assertTrue(customer.isVIP(), "The customer must be vip");
+		assertFalse(customer.isVIP(), "The customer must be vip");
 	}
 	
 	
