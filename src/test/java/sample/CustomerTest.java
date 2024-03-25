@@ -66,7 +66,8 @@ public class CustomerTest {
 		// Verificando se o conteúdo gerado está correto
 		String expected = "Name,Account,IsVIP\n" + "Cliente1,100.0,No\n"
 				+ "Cliente2,200.0,No\n";
-		assertEquals(expected, content.toString());
+		String obtained = content.toString();
+		assertEquals(expected, obtained);
 
 		// Deletando o arquivo temporário
 		if (tempFile != null && tempFile.exists()) {
