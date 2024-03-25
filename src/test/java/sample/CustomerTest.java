@@ -4,12 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.util.OptionalDouble;
-
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
-import sample.account.Account;
 import sample.account.Deposit;
 import sample.account.InternationalAccount;
 import sample.account.InternationalDeposit;
@@ -17,10 +13,6 @@ import sample.account.LocalAccount;
 
 
 public class CustomerTest {
-	
-	//final Account mockAccount = Mockito.mock(Account.class);
-	//Mockito.when(mockAccount.getAmountDepositAvg()).thenReturn(999.00d);
-	//Mockito.when(mockAccount.getAmountDepositAvg()).thenReturn(10001.00d);
 	
 	@Test
 	public void checkIsCustomerIsNotVIP() {
@@ -47,8 +39,6 @@ public class CustomerTest {
 		assertFalse(customer.isVIP(), "The customer must be vip");
 	}
 	
-	
-	/*
 	@Test
 	public void testDepositsForVipAvg() {
 		
@@ -60,7 +50,6 @@ public class CustomerTest {
 		
 		assertTrue(customer.getAccount().getAmountDepositAvg() == (500+800+1200+300)/4, "Deposits avg");
 	}
-	
 	
 	@Test
 	public void testDepositsForVipSum() {
@@ -106,5 +95,5 @@ public class CustomerTest {
 				 customer2 = new Customer("Customer 1", customer1.getAccount());
 		
 		assertEquals(customer1, customer1);
-	}*/
+	}
 }

@@ -1,6 +1,6 @@
 package sample;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +9,8 @@ public class SimpleMeteorTest {
 	@Test
 	public void testCustomerName() {
 		Customer customer = new Customer("Teste1", null);
-		assertEquals("Teste1", customer.getName());
+		assertTrue("Teste1".equals(customer.getName()), "Validação do nome");
+		assertTrue(null == customer.getAccount(), "Validação da conta");
 	}
 	
 	/*@Test
