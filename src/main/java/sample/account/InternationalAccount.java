@@ -19,6 +19,10 @@ public class InternationalAccount extends Account {
 		this.currency = currency;
 	}
 	
+	public double getTax(double amount) {
+		return amount * 0.2;
+	}
+	
 	public boolean moneyForeignTransfer(InternationalAccount targetAccount, Double amount, Double tax, String currency) {			
 		return tax >= 0.2 * amount;
 	}

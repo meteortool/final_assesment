@@ -16,6 +16,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import sample.account.Account;
 import sample.account.Deposit;
 import sample.account.InternationalAccount;
 import sample.account.InternationalDeposit;
@@ -23,7 +24,8 @@ import sample.account.LocalAccount;
 
 public class CustomerTest {
 
-	/*private File tempFile;
+	/*
+	private File tempFile;
 
 	@BeforeEach
 	public void setup() {
@@ -96,24 +98,26 @@ public class CustomerTest {
 		});
 
 		assertFalse(customer.isVIP(), "The customer must be vip");
-	}*/
-	
+	}
+
 	@Test
-    public void testDepositsForVipSum_AllDeposits() {
-        // Criando um cliente fictício com uma conta local
-        Customer customer = new Customer("John Doe", new LocalAccount(0));
+	public void testDepositsForVipSum_AllDeposits() {
+		// Criando um cliente fictício com uma conta local
+		Customer customer = new Customer("John Doe", new LocalAccount(0));
 
-        // Adicionando o primeiro depósito à conta do cliente e validando a soma
-        customer.getAccount().addDeposit(new Deposit(customer.getAccount(), 500, null));    
-        //assertEquals(500, customer.getAccount().getSumDeposit(), "Primeiro depósito");
-        customer.getAccount().addDeposit(new Deposit(customer.getAccount(), 800, null));
-        //assertEquals(1300, customer.getAccount().getSumDeposit(), "Segundo depósito");
-        customer.getAccount().addDeposit(new Deposit(customer.getAccount(), 1200, null));
-        //assertEquals(2500, customer.getAccount().getSumDeposit(), "Terceiro depósito");
-        assertEquals(500+800+1200, 2500, "Terceiro depósito");
-    }
+		// Adicionando o primeiro depósito à conta do cliente e validando a soma
+		customer.getAccount().addDeposit(new Deposit(customer.getAccount(), 500, null));
+		// assertEquals(500, customer.getAccount().getSumDeposit(), "Primeiro
+		// depósito");
+		customer.getAccount().addDeposit(new Deposit(customer.getAccount(), 800, null));
+		// assertEquals(1300, customer.getAccount().getSumDeposit(), "Segundo
+		// depósito");
+		customer.getAccount().addDeposit(new Deposit(customer.getAccount(), 1200, null));
+		// assertEquals(2500, customer.getAccount().getSumDeposit(), "Terceiro
+		// depósito");
+		assertEquals(500 + 800 + 1200, 2500, "Terceiro depósito");
+	}
 
-	/*
 	@Test
 	public void testDepositsForVipAvg() {
 
@@ -171,7 +175,23 @@ public class CustomerTest {
 
 		assertTrue(customer.getAccount().getSumDeposit() == 500 + 800 + 1200 + 300, "Deposits total");
 	}
-
+	*/
+	@Test
+	public void testTaxPercInternational() {
+		Account account1 = new InternationalAccount(0, "Brazil", "BRL");
+		assertEquals(account1.getTax(100), 20);
+		assertEquals(account1.getTax(1000), 200);
+	}
+	
+	@Test
+	public void testTaxPercLocal() {
+		Account account1 = new LocalAccount(0);
+		assertEquals(account1.getTax(100), 10);
+		assertEquals(account1.getTax(1000), 100);
+	}
+	
+	/*
+	
 	@Test
 	public void testEquality() {
 

@@ -51,5 +51,7 @@ public abstract class Account {
 	public void setInitialBalance(double initialBalance) {
 		this.initialBalance = initialBalance;
 	}
+	
+	public abstract double getTax(double amount);
 
 }
