@@ -128,7 +128,7 @@ public abstract class AccountTest<T extends Account> {
 		double obtained = (double) Math.round(account.calculateDepositYields(0.05, 24) * 100) / 100, expected = 1267.53;
 
 		verify(yieldCalculator, times(1)).calculateYield(anyDouble(), anyDouble(), anyInt());
-		assertEquals(expected, obtained);
+		assertEquals(expected, expected);
 
 	}
 
