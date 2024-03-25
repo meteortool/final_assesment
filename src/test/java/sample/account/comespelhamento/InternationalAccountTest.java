@@ -32,4 +32,9 @@ public class InternationalAccountTest extends AccountTest<InternationalAccount> 
 		assertEquals(expectedTax, account.getTax(amount), "Validação da taxa");
 	}
 
+	@Override
+	public void validateDepositTaxes() {
+		assertEquals(account.getDepositTaxes(), account.getSumDeposit() * 0.2);			
+	}
+
 }

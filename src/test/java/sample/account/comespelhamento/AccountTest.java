@@ -93,11 +93,15 @@ public abstract class AccountTest<T extends Account> {
 		deposits.add(new Deposit(account, 200.0, new Date(2024, 3, 20)));
 		account.setDeposits(deposits);
 		
-		if (account instanceof LocalAccount)
+		validateDepositTaxes();
+		
+		/*if (account instanceof LocalAccount)
 			assertEquals(account.getDepositTaxes(), account.getSumDeposit() * 0.1);
 		else
-			assertEquals(account.getDepositTaxes(), account.getSumDeposit() * 0.2);	
+			assertEquals(account.getDepositTaxes(), account.getSumDeposit() * 0.2);	*/
 	}
+	
+	public abstract void validateDepositTaxes();
 
 	/*@ParameterizedTest
 	@CsvSource({ "1, 100, 10", // Dados para conta local
