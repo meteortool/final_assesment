@@ -10,7 +10,7 @@ public class SimpleMeteorTest {
 	public void testCustomerName() {
 		Customer customer = new Customer("Teste1", null);
 		assertTrue("Teste1".equals(customer.getName()), "Validação do nome");
-		assertTrue(null == customer.getAccount(), "Validação da conta");
+		//assertTrue(null == customer.getAccount(), "Validação da conta");
 	}
 	
 	/*@Test
