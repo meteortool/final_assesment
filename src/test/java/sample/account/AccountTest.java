@@ -13,7 +13,7 @@ public abstract class AccountTest {
     @SuppressWarnings("deprecation")
 	@Test
     public void testAddDeposit() {
-        Account account = new LocalAccount();
+        Account account = new LocalAccount(0);
         assertEquals(0, account.getDeposits().size());
 
 		Deposit deposit = new Deposit(account, 100.0, new Date(2024, 3, 19));
@@ -26,7 +26,7 @@ public abstract class AccountTest {
 	@SuppressWarnings("deprecation")
 	@Test
     public void testGetAmountDepositAvg() {
-        Account account = new LocalAccount();
+        Account account = new LocalAccount(0);
 
         assertEquals(0.0, account.getAmountDepositAvg(), 0.001);
 
@@ -41,7 +41,7 @@ public abstract class AccountTest {
     @SuppressWarnings("deprecation")
 	@Test
     public void testGetSumDeposit() {
-        Account account = new LocalAccount();
+        Account account = new LocalAccount(0);
 
         assertEquals(0.0, account.getSumDeposit(), 0.001);
 
@@ -55,21 +55,21 @@ public abstract class AccountTest {
 
     @Test
     public void testGetAmountDepositAvg_EmptyDepositsList() {
-        Account account = new LocalAccount();
+        Account account = new LocalAccount(0);
 
         assertEquals(0.0, account.getAmountDepositAvg());
     }
 
     @Test
     public void testGetSumDeposit_EmptyDepositsList() {
-        Account account = new LocalAccount();
+        Account account = new LocalAccount(0);
        
         assertEquals(0.0, account.getSumDeposit());
     }
 
     @Test
     public void testAddNullDeposit() {
-        Account account = new LocalAccount();
+        Account account = new LocalAccount(0);
         assertEquals(0, account.getDeposits().size());
 
         account.addDeposit(null);

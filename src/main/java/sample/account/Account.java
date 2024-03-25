@@ -5,7 +5,12 @@ import java.util.List;
 import java.util.OptionalDouble;
 
 public abstract class Account {
-	public List<Deposit> deposits = new ArrayList<Deposit>();
+	private List<Deposit> deposits = new ArrayList<Deposit>();
+	private double initialBalance = 0;
+	
+	public Account(double initialBalance) {
+		this.setInitialBalance(initialBalance);
+	}
 
 	public List<Deposit> getDeposits() {
 		return deposits;
@@ -37,6 +42,14 @@ public abstract class Account {
 		}
 		return 0.0;
 		
+	}
+
+	public double getInitialBalance() {
+		return initialBalance;
+	}
+
+	public void setInitialBalance(double initialBalance) {
+		this.initialBalance = initialBalance;
 	}
 
 }

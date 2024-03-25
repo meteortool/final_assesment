@@ -5,7 +5,8 @@ public class InternationalAccount extends Account {
 	private String currency;
 	private String country;
 	
-	public InternationalAccount(String country, String currency) {
+	public InternationalAccount(double initialBalance, String country, String currency) {
+		super(initialBalance);
 		this.setCountry(country);
 		this.setCurrency(currency);		
 	}
