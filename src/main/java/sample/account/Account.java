@@ -60,5 +60,6 @@ public abstract class Account {
 	}*/
 	
 	public abstract double getTax(double amount);
+	public abstract double getDepositTaxes();
 
 }

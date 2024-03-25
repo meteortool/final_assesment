@@ -23,7 +23,7 @@ public class LocalAccountTest extends AccountTest <LocalAccount> {
 		return new LocalAccount(0);
 	}
 	
-	//@ParameterizedTest
+	@ParameterizedTest
 	@CsvSource({ "100, 10", // Dados para conta local
 				 "1000, 100" // Dados para conta local
 	})

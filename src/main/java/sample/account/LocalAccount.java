@@ -10,6 +10,10 @@ public class LocalAccount extends Account {
 		return amount * 0.1;
 	}
 	
+	public double getDepositTaxes() {
+		return getSumDeposit() * 0.1;
+	}
+	
 	public boolean moneyLocalTransfer(LocalAccount account, Double amount, Double tax, String currency) {			
 		return tax >= 0.1 * amount;
 	}

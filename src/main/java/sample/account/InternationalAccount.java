@@ -23,6 +23,10 @@ public class InternationalAccount extends Account {
 		return amount * 0.2;
 	}
 	
+	public double getDepositTaxes() {
+		return getSumDeposit() * 0.2;
+	}
+	
 	public boolean moneyForeignTransfer(InternationalAccount targetAccount, Double amount, Double tax, String currency) {			
 		return tax >= 0.2 * amount;
 	}
