@@ -52,13 +52,6 @@ public abstract class Account {
 		this.initialBalance = initialBalance;
 	}
 	
-	/*public double getTax(double amount) {
-		if(this instanceof LocalAccount)
-			return amount * 0.1;
-		else 
-			return amount * 0.2;
-	}*/
-	
 	public abstract double getTax(double amount);
 	public abstract double getDepositTaxes();
 

@@ -31,5 +31,5 @@ public class LocalAccountTest extends AccountTest <LocalAccount> {
 		LocalAccount account = new LocalAccount(0);
 		assertEquals(expectedTax, account.getTax(amount), "Validação da taxa");
 	}
-
+	
 }
