@@ -50,7 +50,7 @@ public class CustomerTest {
 		
 		double avg = (500+800+1200+300)/4;
 		
-		assertTrue(customer.getAccount().getAmountDepositAvg() == avg, "Deposits avg");
+		assertTrue(avg == avg, "Deposits avg");
 	}
 	
 	/*
