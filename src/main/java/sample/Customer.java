@@ -46,7 +46,7 @@ public class Customer {
 	}
 	
 	public boolean isVIP() {
-		return account.getAmountDepositAvg() >+ 1000;		
+		return account.getAmountDepositAvg() > 1000;		
 	}
 	
 
