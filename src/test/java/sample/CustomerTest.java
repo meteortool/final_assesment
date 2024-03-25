@@ -14,6 +14,7 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.*;
@@ -35,6 +36,14 @@ public class CustomerTest {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@AfterEach
+	public void cleanup() {
+		// Deletando o arquivo temporário
+		if (tempFile != null && tempFile.exists()) {
+			tempFile.delete();
+		}	
 	}
 		
 	@Test
@@ -67,12 +76,7 @@ public class CustomerTest {
 		String expected = "Name,Account,IsVIP\n" + "Cliente1,100.0,No\n"
 				+ "Cliente2,200.0,No\n";
 		String obtained = content.toString();
-		assertEquals(expected, expected);
-
-		// Deletando o arquivo temporário
-		if (tempFile != null && tempFile.exists()) {
-			tempFile.delete();
-		}
+		assertEquals(expected, obtained);
 	}
 	/*
 	 * @Test public void checkIsCustomerIsNotVIP() {
