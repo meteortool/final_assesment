@@ -15,6 +15,8 @@ import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import sample.account.Account;
 import sample.account.Deposit;
@@ -176,7 +178,19 @@ public class CustomerTest {
 		assertTrue(customer.getAccount().getSumDeposit() == 500 + 800 + 1200 + 300, "Deposits total");
 	}
 	*/
-	@Test
+	
+	@ParameterizedTest
+	@CsvSource({ "1, 100, 20", // Dados para conta internacional
+				 "1, 1000, 200", // Dados para conta internacional
+				 "0, 100, 10", // Dados para conta local
+				 "0, 1000, 100" // Dados para conta local
+	})
+	public void testTaxPerc(int accountId, double amount, double expectedTax) {
+		Account account = accountId == 0 ? new LocalAccount(0) : new InternationalAccount(0, "Brazil", "BRL");
+		assertEquals(expectedTax, account.getTax(amount), 0.01);
+	}
+	  
+	/*@Test
 	public void testTaxPercInternational() {
 		Account account1 = new InternationalAccount(0, "Brazil", "BRL");
 		assertEquals(account1.getTax(100), 20);
@@ -188,7 +202,7 @@ public class CustomerTest {
 		Account account1 = new LocalAccount(0);
 		assertEquals(account1.getTax(100), 10);
 		assertEquals(account1.getTax(1000), 100);
-	}
+	}*/
 	
 	/*
 	
