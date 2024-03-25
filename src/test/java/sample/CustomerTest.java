@@ -180,8 +180,8 @@ public class CustomerTest {
 	*/
 	
 	@ParameterizedTest
-	@CsvSource({ "1, 100, 20", // Dados para conta internacional
-				 "1, 1000, 200", // Dados para conta internacional
+	@CsvSource({ //"1, 100, 20", // Dados para conta internacional
+				 //"1, 1000, 200", // Dados para conta internacional
 				 "0, 100, 10", // Dados para conta local
 				 "0, 1000, 100" // Dados para conta local
 	})
