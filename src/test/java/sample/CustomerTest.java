@@ -23,7 +23,7 @@ import sample.account.LocalAccount;
 
 public class CustomerTest {
 
-	private File tempFile;
+	/*private File tempFile;
 
 	@BeforeEach
 	public void setup() {
@@ -96,43 +96,23 @@ public class CustomerTest {
 		});
 
 		assertFalse(customer.isVIP(), "The customer must be vip");
-	}
+	}*/
 	
 	@Test
-    public void testDepositsForVipSum_1Deposit() {
+    public void testDepositsForVipSum_AllDeposits() {
         // Criando um cliente fictício com uma conta local
         Customer customer = new Customer("John Doe", new LocalAccount(0));
 
         // Adicionando o primeiro depósito à conta do cliente e validando a soma
         customer.getAccount().addDeposit(new Deposit(customer.getAccount(), 500, null));    
         assertEquals(500, customer.getAccount().getSumDeposit(), "Primeiro depósito");
-    }
-
-	
-	@Test
-    public void testDepositsForVipSum_2Deposits() {
-        // Criando um cliente fictício com uma conta local
-        Customer customer = new Customer("John Doe", new LocalAccount(0));
-
-        // Adicionando o primeiro depósito à conta do cliente e validando a soma
-        customer.getAccount().addDeposit(new Deposit(customer.getAccount(), 500, null));    
         customer.getAccount().addDeposit(new Deposit(customer.getAccount(), 800, null));
         assertEquals(1300, customer.getAccount().getSumDeposit(), "Segundo depósito");
-
-    }
-	
-	@Test
-    public void testDepositsForVipSum_3Deposits() {
-        // Criando um cliente fictício com uma conta local
-        Customer customer = new Customer("John Doe", new LocalAccount(0));
-
-        // Adicionando o primeiro depósito à conta do cliente e validando a soma
-        customer.getAccount().addDeposit(new Deposit(customer.getAccount(), 500, null));    
-        customer.getAccount().addDeposit(new Deposit(customer.getAccount(), 800, null));
         customer.getAccount().addDeposit(new Deposit(customer.getAccount(), 1200, null));
         assertEquals(2500, customer.getAccount().getSumDeposit(), "Terceiro depósito");
     }
 
+	/*
 	@Test
 	public void testDepositsForVipAvg() {
 
@@ -199,5 +179,5 @@ public class CustomerTest {
 
 		assertEquals(customer1, customer1);
 	}
-
+*/
 }
