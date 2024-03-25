@@ -25,21 +25,24 @@ import sample.account.InternationalDeposit;
 import sample.account.LocalAccount;
 
 public class CustomerTest {
-
+	
+	private File tempFile;
+	
+	@BeforeEach
+	public void setup() {
+		try {
+			tempFile = File.createTempFile("test", ".csv");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+		
 	@Test
 	public void testSaveCustomersToCSV() {
 		// Criando clientes fictícios
 		List<Customer> customers = new ArrayList<>();
 		customers.add(new Customer("Cliente1", new LocalAccount(100.0)));
 		customers.add(new Customer("Cliente2", new LocalAccount(200.0)));
-
-		// Criando um arquivo temporário para gravar os dados
-		File tempFile = null;
-		try {
-			tempFile = File.createTempFile("test", ".csv");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 
 		// Chamando o método para salvar os clientes no arquivo CSV
 		try (FileWriter fileWriter = new FileWriter(tempFile)) {
