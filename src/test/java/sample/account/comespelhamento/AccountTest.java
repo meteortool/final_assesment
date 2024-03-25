@@ -49,7 +49,7 @@ public abstract class AccountTest <T extends Account>  {
     }
 
     @SuppressWarnings("deprecation")
-	//@Test
+	@Test
     public void testGetSumDeposit() {
         assertEquals(0.0, account.getSumDeposit(), 0.001);
 
