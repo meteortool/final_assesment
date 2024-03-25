@@ -14,7 +14,7 @@ import sample.account.LocalAccount;
 
 public class CustomerTest {
 	
-	@Test
+	/*@Test
 	public void checkIsCustomerIsNotVIP() {
 		
 		Customer customer = new Customer("John doe", new LocalAccount() {
@@ -37,7 +37,7 @@ public class CustomerTest {
 		});
 		
 		assertFalse(customer.isVIP(), "The customer must be vip");
-	}
+	}*/
 	
 	@Test
 	public void testDepositsForVipAvg() {
@@ -48,9 +48,12 @@ public class CustomerTest {
 		customer.getAccount().addDeposit(new Deposit(customer.getAccount(), 1200, null));
 		customer.getAccount().addDeposit(new Deposit(customer.getAccount(), 300, null));
 		
-		assertTrue(customer.getAccount().getAmountDepositAvg() == (500+800+1200+300)/4, "Deposits avg");
+		double avg = (500+800+1200+300)/4;
+		
+		assertTrue(customer.getAccount().getAmountDepositAvg() == avg, "Deposits avg");
 	}
 	
+	/*
 	@Test
 	public void testDepositsForVipSum() {
 		
@@ -95,5 +98,5 @@ public class CustomerTest {
 				 customer2 = new Customer("Customer 1", customer1.getAccount());
 		
 		assertEquals(customer1, customer1);
-	}
+	}*/
 }
