@@ -26,7 +26,6 @@ import sample.account.LocalAccount;
 
 public class CustomerTest {
 
-	/*
 	private File tempFile;
 
 	@BeforeEach
@@ -177,11 +176,10 @@ public class CustomerTest {
 
 		assertTrue(customer.getAccount().getSumDeposit() == 500 + 800 + 1200 + 300, "Deposits total");
 	}
-	*/
 	
 	@ParameterizedTest
-	@CsvSource({ //"1, 100, 20", // Dados para conta internacional
-				 //"1, 1000, 200", // Dados para conta internacional
+	@CsvSource({ "1, 100, 20", // Dados para conta internacional
+				 "1, 1000, 200", // Dados para conta internacional
 				 "0, 100, 10", // Dados para conta local
 				 "0, 1000, 100" // Dados para conta local
 	})
@@ -190,7 +188,7 @@ public class CustomerTest {
 		assertEquals(expectedTax, account.getTax(amount), 0.01);
 	}
 	  
-	/*@Test
+	@Test
 	public void testTaxPercInternational() {
 		Account account1 = new InternationalAccount(0, "Brazil", "BRL");
 		assertEquals(account1.getTax(100), 20);
@@ -202,9 +200,7 @@ public class CustomerTest {
 		Account account1 = new LocalAccount(0);
 		assertEquals(account1.getTax(100), 10);
 		assertEquals(account1.getTax(1000), 100);
-	}*/
-	
-	/*
+	}
 	
 	@Test
 	public void testEquality() {
@@ -214,5 +210,4 @@ public class CustomerTest {
 
 		assertEquals(customer1, customer1);
 	}
-*/
 }

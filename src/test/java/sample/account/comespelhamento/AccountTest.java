@@ -1,4 +1,4 @@
-package sample.account;
+package sample.account.comespelhamento;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -7,6 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
+
+import sample.account.Account;
+import sample.account.Deposit;
+import sample.account.LocalAccount;
 
 public abstract class AccountTest {
 
