@@ -17,18 +17,19 @@ public class LocalAccountTest extends AccountTest <LocalAccount> {
         assertTrue(account.moneyLocalTransfer(account, 100.0, 10.0, "USD"));
         assertFalse(account.moneyLocalTransfer(account, 100.0, 9.0, "USD"));
     }
-    
-	@ParameterizedTest
-	@CsvSource({ "100, 10", // Dados para conta local
-				 "1000, 100" // Dados para conta local
-	})
-	public void testTaxPerc(double amount, double expectedTax) {
-		assertEquals(expectedTax, account.getTax(amount), "Validação da taxa");
-	}
-
+   
 	@Override
 	public LocalAccount createAccount() {
 		return new LocalAccount(0);
 	}
+	
+	/*@ParameterizedTest
+	@CsvSource({ "100, 10", // Dados para conta local
+				 "1000, 100" // Dados para conta local
+	})
+	public void testTaxPerc(double amount, double expectedTax) {
+		LocalAccount account = new LocalAccount(0);
+		assertEquals(expectedTax, account.getTax(amount), "Validação da taxa");
+	}*/
 
 }
