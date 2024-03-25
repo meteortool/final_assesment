@@ -112,13 +112,13 @@ public abstract class AccountTest<T extends Account> {
 
 		assertEquals(0.0, account.getSumDeposit());
 
-		/*YieldCalculator yieldCalculator = mock(YieldCalculator.class);
+		YieldCalculator yieldCalculator = mock(YieldCalculator.class);
 		when(yieldCalculator.getMode()).thenReturn(Mode.COMPOUND);
 		when(yieldCalculator.calculateYield(anyDouble(), anyDouble(), anyInt())).thenAnswer(invocation -> {
 			System.out.println("Here");
 			return 967.53;
 		});
-		account.setCalculator(yieldCalculator);*/
+		account.setCalculator(yieldCalculator);
 
 		List<Deposit> deposits = new ArrayList<>();
 		deposits.add(new Deposit(account, 100.0, new Date(2024, 3, 19)));
@@ -127,7 +127,7 @@ public abstract class AccountTest<T extends Account> {
 
 		double obtained = (double) Math.round(account.calculateDepositYields(0.05, 24) * 100) / 100, expected = 1267.53;
 
-		//verify(yieldCalculator, times(1)).calculateYield(anyDouble(), anyDouble(), anyInt());
+		verify(yieldCalculator, times(1)).calculateYield(anyDouble(), anyDouble(), anyInt());
 		assertEquals(expected, obtained);
 
 	}
