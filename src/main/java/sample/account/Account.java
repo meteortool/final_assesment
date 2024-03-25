@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.OptionalDouble;
 
+import sample.account.YieldCalculator.Mode;
+
 public abstract class Account {
 	private List<Deposit> deposits = new ArrayList<Deposit>();
 	private double initialBalance = 0;
-	
+
 	public Account(double initialBalance) {
 		this.setInitialBalance(initialBalance);
 	}
@@ -21,7 +23,7 @@ public abstract class Account {
 	}
 
 	public void addDeposit(Deposit deposit) {
-		if(deposit != null)
+		if (deposit != null)
 			this.deposits.add(deposit);
 	}
 
@@ -34,14 +36,14 @@ public abstract class Account {
 		}
 		return 0.0;
 	}
-	
+
 	public double getSumDeposit() {
 		if (this.getDeposits() != null && getDeposits().size() > 0) {
 			double sum = this.getDeposits().stream().mapToDouble(Deposit::getAmount).sum();
 			return sum;
 		}
 		return 0.0;
-		
+
 	}
 
 	public double getInitialBalance() {
@@ -51,8 +53,13 @@ public abstract class Account {
 	public void setInitialBalance(double initialBalance) {
 		this.initialBalance = initialBalance;
 	}
+
+	public double calculateDepositYields(double rate, int periods) {
+		return getSumDeposit() + (new YieldCalculator(Mode.COMPOUND).calculateYield(getSumDeposit(), rate, periods));
+	}
 	
 	public abstract double getTax(double amount);
+
 	public abstract double getDepositTaxes();
 
 }

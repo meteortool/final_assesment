@@ -101,6 +101,24 @@ public abstract class AccountTest<T extends Account> {
 			assertEquals(account.getDepositTaxes(), account.getSumDeposit() * 0.2);	*/
 	}
 	
+	
+	@Test
+	public void testYield() {
+		
+		assertEquals(0.0, account.getSumDeposit(), 0.001);
+
+		List<Deposit> deposits = new ArrayList<>();
+		deposits.add(new Deposit(account, 100.0, new Date(2024, 3, 19)));
+		deposits.add(new Deposit(account, 200.0, new Date(2024, 3, 20)));
+		account.setDeposits(deposits);
+		
+		double obtained = (double) Math.round(account.calculateDepositYields(0.05, 24) * 100) / 100,
+				expected = 1267.53;
+		
+		assertEquals(expected, obtained);
+		
+	}
+	
 	public abstract void validateDepositTaxes();
 
 	/*@ParameterizedTest
