@@ -32,7 +32,7 @@ public class InternationalAccountTest {
 	@Test
     public void testGetAmountDepositAvg() {
         InternationalAccount account = new InternationalAccount(0, "USA", "USD");
-        assertEquals(0.0, account.getAmountDepositAvg(), 0.001);
+        assertEquals(0.0, account.getAmountDepositAvg());
         List<Deposit> deposits = new ArrayList<>();
         deposits.add(new Deposit(account, 100.0, new Date(2024, 3, 19)));
         deposits.add(new Deposit(account, 200.0, new Date(2024, 3, 20)));
@@ -44,7 +44,7 @@ public class InternationalAccountTest {
 	@Test
     public void testGetSumDeposit() {
         InternationalAccount account = new InternationalAccount(0, "USA", "USD");
-        assertEquals(0.0, account.getSumDeposit(), 0.001);
+        assertEquals(0.0, account.getSumDeposit());
         List<Deposit> deposits = new ArrayList<>();
         deposits.add(new Deposit(account, 100.0, new Date(2024, 3, 19)));
         deposits.add(new Deposit(account, 200.0, new Date(2024, 3, 20)));
