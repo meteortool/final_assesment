@@ -1,0 +1,49 @@
+[ {
+  "key" : "Refactoring Session",
+  "value" : "#1",
+  "iconPath" : "icons/meteortest16.png",
+  "report" : null,
+  "children" : [ {
+    "key" : "Baseline -> Test Mutation Score",
+    "value" : "2.0",
+    "iconPath" : "icons/meteorpinbl.png",
+    "report" : null,
+    "children" : [ ]
+  }, {
+    "key" : "Last Result -> Test Mutation Score",
+    "value" : "2.0",
+    "iconPath" : "icons/meteortest16.png",
+    "report" : null,
+    "children" : [ ]
+  }, {
+    "key" : "Refactoring Result",
+    "value" : "Refactoring successfull.",
+    "iconPath" : "icons/meteorrefok.png",
+    "report" : "C:\\Users\\User\\AppData\\Local\\Temp\\8266415450527237391\\mutation_test_report_20240324220538531.csv",
+    "children" : [ ]
+  } ]
+}, {
+  "key" : "Refactoring Session",
+  "value" : "#2",
+  "iconPath" : "icons/meteortest16.png",
+  "report" : null,
+  "children" : [ {
+    "key" : "Baseline -> Test Mutation Score",
+    "value" : "2.0",
+    "iconPath" : "icons/meteorpinbl.png",
+    "report" : null,
+    "children" : [ ]
+  }, {
+    "key" : "Last Result -> Test Mutation Score",
+    "value" : "2.0",
+    "iconPath" : "icons/meteortest16.png",
+    "report" : null,
+    "children" : [ ]
+  }, {
+    "key" : "Refactoring Result",
+    "value" : "Refactoring unsuccessfull (1) changes.",
+    "iconPath" : "icons/meteorrefnok.png",
+    "report" : "C:\\Users\\User\\AppData\\Local\\Temp\\8266415450527237391\\mutation_test_report_20240324220609031.csv",
+    "children" : [ ]
+  } ]
+} ]

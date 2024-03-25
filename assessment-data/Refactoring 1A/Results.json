@@ -1,0 +1,25 @@
+[ {
+  "key" : "Refactoring Session",
+  "value" : "#1",
+  "iconPath" : "icons/meteortest16.png",
+  "report" : null,
+  "children" : [ {
+    "key" : "Baseline -> Test Mutation Score",
+    "value" : "5.0",
+    "iconPath" : "icons/meteorpinbl.png",
+    "report" : null,
+    "children" : [ ]
+  }, {
+    "key" : "Last Result -> Test Mutation Score",
+    "value" : "5.0",
+    "iconPath" : "icons/meteortest16.png",
+    "report" : null,
+    "children" : [ ]
+  }, {
+    "key" : "Refactoring Result",
+    "value" : "Refactoring successfull.",
+    "iconPath" : "icons/meteorrefok.png",
+    "report" : "C:\\Users\\User\\AppData\\Local\\Temp\\14458047461962423359\\mutation_test_report_20240323171737458.csv",
+    "children" : [ ]
+  } ]
+} ]
