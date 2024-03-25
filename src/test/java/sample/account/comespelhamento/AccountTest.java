@@ -45,7 +45,7 @@ public abstract class AccountTest <T extends Account>  {
         deposits.add(new Deposit(account, 200.0, new Date(2024, 3, 20)));
         account.setDeposits(deposits);
 
-        assertEquals(150.0, 150.0, "Validação da média");
+        assertEquals(150.0, account.getAmountDepositAvg(), "Validação da média");
     }
 
     @SuppressWarnings("deprecation")

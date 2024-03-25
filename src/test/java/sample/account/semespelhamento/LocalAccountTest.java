@@ -37,7 +37,7 @@ public class LocalAccountTest {
         deposits.add(new Deposit(account, 100.0, new Date(2024, 3, 19)));
         deposits.add(new Deposit(account, 200.0, new Date(2024, 3, 20)));
         account.setDeposits(deposits);
-        assertEquals(150.0, 150.0, "Validação da média");
+        assertEquals(150.0, account.getAmountDepositAvg(), "Validação da média");
     }
 
     @SuppressWarnings("deprecation")
