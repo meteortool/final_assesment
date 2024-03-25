@@ -23,13 +23,13 @@ public class InternationalAccountTest extends AccountTest<InternationalAccount> 
 		return new InternationalAccount(0, "Brazil", "BRL");
 	}
 	
-	/*@ParameterizedTest
+	@ParameterizedTest
 	@CsvSource({ "100, 20", // Dados para conta internacional
 				 "1000, 200", // Dados para conta internacional
 	})
 	public void testTaxPerc(double amount, double expectedTax) {
 		InternationalAccount account =  new InternationalAccount(0, "Brazil", "BRL");
 		assertEquals(expectedTax, account.getTax(amount), "Validação da taxa");
-	}*/
+	}
 
 }
