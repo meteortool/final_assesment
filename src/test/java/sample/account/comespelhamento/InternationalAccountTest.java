@@ -8,28 +8,27 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import sample.account.Account;
 import sample.account.InternationalAccount;
-import sample.account.LocalAccount;
 
-public class InternationalAccountTest extends AccountTest {
+public class InternationalAccountTest extends AccountTest<InternationalAccount> {
 
 	@Test
     public void testMoneyForeignTransfer() {
-        InternationalAccount account = new InternationalAccount(0, "USA", "USD");
-
         assertTrue(account.moneyForeignTransfer(null, 100.0, 20.0, "USD"));
         assertFalse(account.moneyForeignTransfer(null, 100.0, 19.0, "USD"));
     }
 	
 	@ParameterizedTest
-	@CsvSource({ "1, 100, 20", // Dados para conta internacional
-				 "1, 1000, 200", // Dados para conta internacional
+	@CsvSource({ "100, 20", // Dados para conta internacional
+				 "1000, 200", // Dados para conta internacional
 	})
-	public void testTaxPerc(int accountId, double amount, double expectedTax) {
-		Account account = accountId == 0 ? new LocalAccount(0) : new InternationalAccount(0, "Brazil", "BRL");
-		assertEquals(expectedTax, account.getTax(amount), 0.01);
+	public void testTaxPerc(double amount, double expectedTax) {
+		assertEquals(expectedTax, account.getTax(amount), "Validação da taxa");
 	}
 
+	@Override
+	public InternationalAccount createAccount() {
+		return new InternationalAccount(0, "Brazil", "BRL");
+	}
 
 }

@@ -85,8 +85,7 @@ public class LocalAccountTest {
 	})
 	public void testTaxPerc(double amount, double expectedTax) {
 		LocalAccount account = new LocalAccount(0);
-		assertEquals(expectedTax, account.getTax(amount), 0.01);
+		assertEquals(expectedTax, account.getTax(amount), "Validação da taxa");
 	}
-
 
 }

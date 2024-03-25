@@ -86,8 +86,7 @@ public class InternationalAccountTest {
 	})
 	public void testTaxPerc(double amount, double expectedTax) {
 		InternationalAccount account =  new InternationalAccount(0, "Brazil", "BRL");
-		assertEquals(expectedTax, account.getTax(amount), 0.01);
+		assertEquals(expectedTax, account.getTax(amount), "Validação da taxa");
 	}
-
 
 }

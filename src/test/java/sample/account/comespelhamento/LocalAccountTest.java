@@ -8,29 +8,27 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import sample.account.Account;
-import sample.account.InternationalAccount;
 import sample.account.LocalAccount;
 
-public class LocalAccountTest extends AccountTest {
+public class LocalAccountTest extends AccountTest <LocalAccount> {
 	
-
     @Test
     public void testMoneyLocalTransfer() {
-        LocalAccount account = new LocalAccount(0);
-
         assertTrue(account.moneyLocalTransfer(account, 100.0, 10.0, "USD"));
         assertFalse(account.moneyLocalTransfer(account, 100.0, 9.0, "USD"));
     }
     
 	@ParameterizedTest
-	@CsvSource({ "0, 100, 10", // Dados para conta local
-				 "0, 1000, 100" // Dados para conta local
+	@CsvSource({ "100, 10", // Dados para conta local
+				 "1000, 100" // Dados para conta local
 	})
-	public void testTaxPerc(int accountId, double amount, double expectedTax) {
-		Account account = accountId == 0 ? new LocalAccount(0) : new InternationalAccount(0, "Brazil", "BRL");
-		assertEquals(expectedTax, account.getTax(amount), 0.01);
+	public void testTaxPerc(double amount, double expectedTax) {
+		assertEquals(expectedTax, account.getTax(amount), "Validação da taxa");
 	}
 
+	@Override
+	public LocalAccount createAccount() {
+		return new LocalAccount(0);
+	}
 
 }
