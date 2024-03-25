@@ -9,9 +9,11 @@ import sample.account.YieldCalculator.Mode;
 public abstract class Account {
 	private List<Deposit> deposits = new ArrayList<Deposit>();
 	private double initialBalance = 0;
+	private YieldCalculator calculator;
 
 	public Account(double initialBalance) {
 		this.setInitialBalance(initialBalance);
+		this.calculator = new YieldCalculator(Mode.COMPOUND);
 	}
 
 	public List<Deposit> getDeposits() {
@@ -55,8 +57,12 @@ public abstract class Account {
 	}
 
 	public double calculateDepositYields(double rate, int periods) {
-		return getSumDeposit() + (new YieldCalculator(Mode.COMPOUND).calculateYield(getSumDeposit(), rate, periods));
+		return getSumDeposit() + (calculator.calculateYield(getSumDeposit(), rate, periods));
 	}
+	
+    public void setCalculator(YieldCalculator calculator) {
+        this.calculator = calculator;
+    }
 	
 	public abstract double getTax(double amount);
 

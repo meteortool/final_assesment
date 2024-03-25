@@ -14,6 +14,10 @@ public class YieldCalculator {
 		this.mode = mode;
 	}
 
+	public Mode getMode() {
+		return mode;
+	}
+
 	// Função para calcular o rendimento (lucro) com juros simples
 	public double calculateSimpleInterest(double principal, double rate, int periods) {
 		double interest = principal * rate * periods;
@@ -28,7 +32,7 @@ public class YieldCalculator {
 
 	// Função para calcular o rendimento de acordo com o modo selecionado
 	public double calculateYield(double principal, double rate, int periods) {
-		switch (mode) {
+		switch (getMode()) {
 		case SIMPLE:
 			return calculateSimpleInterest(principal, rate, periods);
 		case COMPOUND:
