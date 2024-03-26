@@ -134,7 +134,7 @@ public abstract class AccountTest<T extends Account> {
 
 	public abstract void validateDepositTaxes();
 
-	/*@ParameterizedTest
+	@ParameterizedTest
 	@CsvSource({ "1, 100, 10", // Dados para conta local
 		"1, 1000, 100", // Dados para conta local
 		"2, 100, 20", // Dados para conta internacional
@@ -144,6 +144,6 @@ public abstract class AccountTest<T extends Account> {
 		if ((accountType == 1 && account instanceof LocalAccount)
 				|| (accountType == 2 && account instanceof InternationalAccount))
 			assertEquals(expectedTax, account.getTax(amount), "Validação da taxa");
-	}*/
+	}
 
 }

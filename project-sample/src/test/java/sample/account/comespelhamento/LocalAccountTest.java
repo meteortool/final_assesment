@@ -23,14 +23,14 @@ public class LocalAccountTest extends AccountTest <LocalAccount> {
 		return new LocalAccount(0);
 	}
 	
-	@ParameterizedTest
+	/*@ParameterizedTest
 	@CsvSource({ "100, 10", // Dados para conta local
 				 "1000, 100" // Dados para conta local
 	})
 	public void testTaxPerc(double amount, double expectedTax) {
 		LocalAccount account = new LocalAccount(0);
 		assertEquals(expectedTax, account.getTax(amount), "Validação da taxa");
-	}
+	}*/
 
 	@Override
 	public void validateDepositTaxes() {
