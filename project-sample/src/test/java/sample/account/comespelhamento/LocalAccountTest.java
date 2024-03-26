@@ -34,7 +34,7 @@ public class LocalAccountTest extends AccountTest <LocalAccount> {
 
 	@Override
 	public void validateDepositTaxes() {
-		//assertEquals(account.getDepositTaxes(), account.getSumDeposit() * 0.1);		
+		assertEquals(account.getDepositTaxes(), account.getSumDeposit() * 0.1);		
 	}
 	
 }
