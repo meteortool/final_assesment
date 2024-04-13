@@ -1,5 +1,6 @@
 package sample.account.semespelhamento;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -40,8 +41,10 @@ public class InternationalAccountTest {
         assertEquals(0, account.getDeposits().size());
 		Deposit deposit = new Deposit(account, 100.0, new Date(2024, 3, 19));
         account.addDeposit(deposit);
-        assertEquals(1, account.getDeposits().size());
-        assertEquals(deposit, account.getDeposits().get(0));
+        
+        assertAll("Adding deposit and checking size and object", 
+        		() -> assertEquals(1, account.getDeposits().size()),
+        		() -> assertEquals(deposit, account.getDeposits().get(0)));
     }
 
 	@SuppressWarnings("deprecation")
