@@ -3,6 +3,7 @@ package sample.account.semespelhamento;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -20,7 +21,7 @@ import sample.exceptions.BusinessRuleException;
 
 public class InternationalAccountTest {
 	
-	@Test
+	/*@Test
 	public void testNegativeDeposit() {
 		try {
 			InternationalAccount account = new InternationalAccount(1000, "USA", "USD");
@@ -32,6 +33,17 @@ public class InternationalAccountTest {
 		} catch (Exception exception) {
 			fail("Exception invalid");
 		}
+	}*/
+	
+	@Test
+	public void testNegativeDeposit() {
+		InternationalAccount account = new InternationalAccount(1000, "USA", "USD");
+		    assertEquals(0, account.getDeposits().size());
+		    
+	    // Em vez de try-catch, utilize assertThrows
+	    assertThrowsExactly(BusinessRuleException.class, () -> {
+	        new Deposit(account, -100.0, new Date(2024, 3, 19));
+	    });
 	}
 	
 	@SuppressWarnings("deprecation")
