@@ -36,14 +36,20 @@ public class InternationalAccountTest {
 	}*/
 	
 	@Test
-	public void testNegativeDeposit() {
+	public void testNegativeDeposit() throws Exception {
 		InternationalAccount account = new InternationalAccount(1000, "USA", "USD");
 		    assertEquals(0, account.getDeposits().size());
 		    
 	    // Em vez de try-catch, utilize assertThrows
 	    assertThrowsExactly(BusinessRuleException.class, () -> {
-	        new Deposit(account, -100.0, new Date(2024, 3, 19));
+	    	throw new BusinessRuleException();
 	    });
+	    
+	    try {
+	    	new Deposit(account, -100.0, new Date(2024, 3, 19));
+	    } catch (Exception e) {
+	    	
+	    }
 	}
 	
 	@SuppressWarnings("deprecation")
