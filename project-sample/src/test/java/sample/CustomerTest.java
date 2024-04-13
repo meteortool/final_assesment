@@ -102,7 +102,7 @@ public class CustomerTest {
 	}
 
 	@Test
-	public void testDepositsForVipSum_AllDeposits() {
+	public void testDepositsForVipSum_AllDeposits() throws Exception {
 		// Criando um cliente fictício com uma conta local
 		Customer customer = new Customer("John Doe", new LocalAccount(0));
 
@@ -120,7 +120,7 @@ public class CustomerTest {
 	}
 
 	@Test
-	public void testDepositsForVipAvg() {
+	public void testDepositsForVipAvg() throws Exception {
 
 		Customer customer = new Customer("John doe", new LocalAccount(0));
 		customer.getAccount().addDeposit(new Deposit(customer.getAccount(), 500, null));
@@ -134,7 +134,7 @@ public class CustomerTest {
 	}
 
 	@Test
-	public void testDepositsForVipSum() {
+	public void testDepositsForVipSum() throws Exception {
 
 		Customer customer = new Customer("John doe", new LocalAccount(0));
 		customer.getAccount().addDeposit(new Deposit(customer.getAccount(), 500, null));
@@ -146,7 +146,7 @@ public class CustomerTest {
 	}
 
 	@Test
-	public void testDepositsForInternationAccountVipAvg() {
+	public void testDepositsForInternationAccountVipAvg() throws Exception {
 
 		Customer customer = new Customer("John doe", new InternationalAccount(0, "Brazil", "BRL"));
 		customer.getAccount()
@@ -162,7 +162,7 @@ public class CustomerTest {
 	}
 
 	@Test
-	public void testDepositsForInternationalAccountVipSum() {
+	public void testDepositsForInternationalAccountVipSum() throws Exception {
 
 		Customer customer = new Customer("John doe", new InternationalAccount(0, "Brazil", "BRL"));
 		customer.getAccount()

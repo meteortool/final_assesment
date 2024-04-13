@@ -19,7 +19,7 @@ public class LocalAccountTest {
 	
 	@SuppressWarnings("deprecation")
 	@Test
-    public void testAddDeposit() {
+    public void testAddDeposit() throws Exception {
 		LocalAccount account = new LocalAccount(0);
         assertEquals(0, account.getDeposits().size());
 		Deposit deposit = new Deposit(account, 100.0, new Date(2024, 3, 19));
@@ -30,7 +30,7 @@ public class LocalAccountTest {
 
 	@SuppressWarnings("deprecation")
 	@Test
-    public void testGetAmountDepositAvg() {
+    public void testGetAmountDepositAvg() throws Exception {
 		LocalAccount account = new LocalAccount(0);
         assertEquals(0.0, account.getAmountDepositAvg());
         List<Deposit> deposits = new ArrayList<>();
@@ -42,7 +42,7 @@ public class LocalAccountTest {
 
     @SuppressWarnings("deprecation")
 	@Test
-    public void testGetSumDeposit() {
+    public void testGetSumDeposit() throws Exception {
 		LocalAccount account = new LocalAccount(0);
         assertEquals(0.0, account.getSumDeposit());
         List<Deposit> deposits = new ArrayList<>();

@@ -3,6 +3,7 @@ package sample.account.semespelhamento;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -14,12 +15,27 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import sample.account.Deposit;
 import sample.account.InternationalAccount;
+import sample.exceptions.BusinessRuleException;
 
 public class InternationalAccountTest {
 	
+	@Test
+	public void testNegativeDeposit() {
+		try {
+			InternationalAccount account = new InternationalAccount(1000, "USA", "USD");
+	        assertEquals(0, account.getDeposits().size());
+			Deposit deposit = new Deposit(account, -100.0, new Date(2024, 3, 19));
+			fail("Deposit must be positive!");
+		} catch (BusinessRuleException businessRuleException) {
+			// Ok
+		} catch (Exception exception) {
+			fail("Exception invalid");
+		}
+	}
+	
 	@SuppressWarnings("deprecation")
 	@Test
-    public void testAddDeposit() {        
+    public void testAddDeposit() throws Exception {        
 		InternationalAccount account = new InternationalAccount(0, "USA", "USD");
         assertEquals(0, account.getDeposits().size());
 		Deposit deposit = new Deposit(account, 100.0, new Date(2024, 3, 19));
@@ -30,7 +46,7 @@ public class InternationalAccountTest {
 
 	@SuppressWarnings("deprecation")
 	@Test
-    public void testGetAmountDepositAvg() {
+    public void testGetAmountDepositAvg() throws Exception {
         InternationalAccount account = new InternationalAccount(0, "USA", "USD");
         assertEquals(0.0, account.getAmountDepositAvg());
         List<Deposit> deposits = new ArrayList<>();
@@ -42,7 +58,7 @@ public class InternationalAccountTest {
 
     @SuppressWarnings("deprecation")
 	@Test
-    public void testGetSumDeposit() {
+    public void testGetSumDeposit() throws Exception {
         InternationalAccount account = new InternationalAccount(0, "USA", "USD");
         assertEquals(0.0, account.getSumDeposit());
         List<Deposit> deposits = new ArrayList<>();

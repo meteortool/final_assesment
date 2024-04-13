@@ -35,7 +35,7 @@ public abstract class AccountTest<T extends Account> {
 
 	@SuppressWarnings("deprecation")
 	@Test
-	public void testAddDeposit() {
+	public void testAddDeposit() throws Exception {
 		assertEquals(0, account.getDeposits().size());
 
 		Deposit deposit = new Deposit(account, 100.0, new Date(2024, 3, 19));
@@ -47,7 +47,7 @@ public abstract class AccountTest<T extends Account> {
 
 	@SuppressWarnings("deprecation")
 	@Test
-	public void testGetAmountDepositAvg() {
+	public void testGetAmountDepositAvg() throws Exception {
 		assertEquals(0.0, account.getAmountDepositAvg());
 
 		List<Deposit> deposits = new ArrayList<>();
@@ -60,7 +60,7 @@ public abstract class AccountTest<T extends Account> {
 
 	@SuppressWarnings("deprecation")
 	@Test
-	public void testGetSumDeposit() {
+	public void testGetSumDeposit() throws Exception {
 		assertEquals(0.0, account.getSumDeposit());
 
 		List<Deposit> deposits = new ArrayList<>();
@@ -89,7 +89,7 @@ public abstract class AccountTest<T extends Account> {
 	}
 
 	@Test
-	public void testDepositsandTaxes() {
+	public void testDepositsandTaxes() throws Exception {
 
 		assertEquals(0.0, account.getSumDeposit());
 
@@ -108,7 +108,7 @@ public abstract class AccountTest<T extends Account> {
 	}
 
 	@Test
-	public void testYield() {
+	public void testYield() throws Exception {
 
 		assertEquals(0.0, account.getSumDeposit());
 

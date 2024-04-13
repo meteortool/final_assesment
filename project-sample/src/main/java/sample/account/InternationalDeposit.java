@@ -6,7 +6,7 @@ public class InternationalDeposit extends Deposit {
 	
 	private String currency;
 
-	public InternationalDeposit(InternationalAccount account, double amount, Date date, String currency) {
+	public InternationalDeposit(InternationalAccount account, double amount, Date date, String currency) throws Exception {
 		super((Account)account, amount, date);
 		this.currency = currency;
 	}
