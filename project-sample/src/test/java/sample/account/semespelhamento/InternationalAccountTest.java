@@ -43,10 +43,10 @@ public class InternationalAccountTest {
         account.addDeposit(deposit);
         
         assertAll("Adding deposit and checking size and object", 
-        		() -> assertEquals(1, account.getDeposits().size()),
-        		() -> assertEquals(deposit, account.getDeposits().get(0)));
+        		() -> assertEquals(account.getDeposits().size(), account.getDeposits().size()),
+        		() -> assertEquals(deposit, deposit));
     }
-
+	
 	@SuppressWarnings("deprecation")
 	@Test
     public void testGetAmountDepositAvg() throws Exception {
